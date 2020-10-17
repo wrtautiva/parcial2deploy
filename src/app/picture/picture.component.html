@@ -1,0 +1,11 @@
+<div class="tarjeta">
+    <p-card header="{{picture.author}}" subheader="Download # {{picture.id}}" [style]="{width: '360px'}" styleClass="p-card-shadow">
+        <ng-template pTemplate="header">
+            <img alt="Card" src={{picture.download_url}} [style]="{'width': 'picture.width','height': 'picture.height'}">
+        </ng-template>
+        <ng-template pTemplate="footer">
+            <p-button (click)="openUrl()" label="Download" icon="pi pi-check"></p-button>
+        
+        </ng-template>
+    </p-card>
+</div>

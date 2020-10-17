@@ -1,0 +1,39 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<div class="general">
+    <div class="cabecera">
+        <h1>Our Image Gallery</h1>
+    </div>
+    <div class="contenido">
+        <mat-form-field>
+            <mat-label>Set size page</mat-label>
+            <input matInput type="number">
+        </mat-form-field>
+        <br>
+
+        <mat-form-field class="example-full-width">
+            <mat-label>Filter by author</mat-label>
+            <input matInput placeholder="author">
+        </mat-form-field>
+        <br>
+
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Enter page number" [(ngModel)]="pageNumber" type="number">
+        </mat-form-field> <br>
+        <button mat-stroked-button color="primary" (click)="goToPage()">Go to Page</button>
+
+
+    </div>
+
+    <div class="grid">
+        <div class="image" *ngFor= 'let picture of pictures'>
+            <app-picture  [picture]="picture"></app-picture>
+        </div>
+    </div>
+    <br>
+
+    <div class="footer">
+     
+    </div>
+</div>
+
+
