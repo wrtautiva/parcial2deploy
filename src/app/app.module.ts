@@ -19,6 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
 //Import prime gn
 import {CardModule} from 'primeng/card';
 import {ButtonModule} from 'primeng/button';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -36,8 +37,9 @@ import {ButtonModule} from 'primeng/button';
     FormsModule,
     HttpClientModule,
     CardModule,
-    ButtonModule
-    
+    ButtonModule,
+    NgxPaginationModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

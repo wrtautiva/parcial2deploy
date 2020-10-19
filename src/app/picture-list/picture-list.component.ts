@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
-import { MatPaginator,} from '../models/paginator.model';
+import { MatPaginator, } from '../models/paginator.model';
 import { Picture } from '../models/picture.model';
 import { PictureInfoService } from '../service/picture-info.service';
 
@@ -11,27 +11,16 @@ import { PictureInfoService } from '../service/picture-info.service';
 export class PictureListComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
+  public page: number;
+  public pageSize: number = 5;
 
-  pageNumber: any;
-
-  goToPage() {
-    this.paginator.pageIndex = this.pageNumber, // number of the page you want to jump.
-      this.paginator.page.next({
-        pageIndex: this.pageNumber,
-        pageSize: this.paginator.pageSize,
-        length: this.paginator.length
-  });
-  }
 
   pictures: Array<Picture>;
   constructor(private pictureInfoService: PictureInfoService) {
-      this.pictures= new Array <Picture> ();
-   }
-
-
-    
+    this.pictures = new Array<Picture>();
+  }
   ngOnInit(): void {
-  this.fillPictures();
+    this.fillPictures();
   }
 
   fillPictures() {
@@ -40,7 +29,4 @@ export class PictureListComponent implements OnInit {
       console.log(this.pictures);
     })
   }
-
-
-
 }

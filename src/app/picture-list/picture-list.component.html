@@ -9,35 +9,23 @@
             <input matInput type="number">
         </mat-form-field>
         <br>
+</div>
 
-        <mat-form-field class="example-full-width">
-            <mat-label>Filter by author</mat-label>
-            <input matInput placeholder="author">
-        </mat-form-field>
-        <br>
-
-        <mat-form-field class="example-full-width">
-            <input matInput placeholder="Enter page number" [(ngModel)]="pageNumber" type="number">
-        </mat-form-field> <br>
-        <button mat-stroked-button color="primary" (click)="goToPage()">Go to Page</button>
-
-
-    </div>
-
-    <div class="grid">
-        <div class="image" *ngFor= 'let picture of pictures'>
+<div class="grid">
+        <div class="image" *ngFor= 'let picture of pictures | paginate: { itemsPerPage: pageSize, currentPage: page }'>
             <app-picture  [picture]="picture"></app-picture>
         </div>
+    </div>
+    <div style="text-align:center">
+    <pagination-controls (pageChange)="page = $event"maxSize="9" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>
     </div>
     <br>
 
     <div class="footer">
         <h3>Sobre nosotros</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
             Unde minus pariatur eveniet amet repellendus consequatur
              maiores deleniti error iure necessitatibus exercitationem doloremque illum repudiandae,
              suscipit debitis enim quae? Minus, vero!</p>
     </div>
 </div>
-
-
